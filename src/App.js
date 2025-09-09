@@ -1,22 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import FindLawyerPage from './pages/FindLawyerPage';
+import LawyerProfilePage from './pages/LawyerProfilePage';
+import BookingPage from './pages/BookingPage';
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/find-lawyer" element={<FindLawyerPage />} />
+      <Route path="/lawyers/:id" element={<LawyerProfilePage />} />
+      <Route path="/book/:id" element={<BookingPage />} />
+    </Routes>
   );
 }
-
-export default App;
